@@ -1,0 +1,37 @@
+{
+  "student_id": "s35",
+  "week": "04",
+  "resource": "likes",
+  "singular": "like",
+  "extra_field": {
+    "name": "target",
+    "type": "str"
+  },
+  "service": {
+    "name": "likes-svc",
+    "port": 8134
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/likes",
+        "upstream": "likes-svc"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "likes.v1",
+    "service": "LikesService"
+  },
+  "graphql": {
+    "type": "Like",
+    "query": "likes",
+    "mutation": "createLike"
+  },
+  "k8s": {
+    "app": "likes-app",
+    "container": "likes-container"
+  },
+  "project_code": "likes-s35"
+}

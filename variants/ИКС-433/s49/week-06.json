@@ -1,0 +1,38 @@
+{
+  "group": "ИКС-433",
+  "student_id": "s49",
+  "week": "06",
+  "resource": "likes",
+  "singular": "like",
+  "extra_field": {
+    "name": "target",
+    "type": "str"
+  },
+  "service": {
+    "name": "likes-svc-s49",
+    "port": 8174
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/likes",
+        "upstream": "likes-svc-s49"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "likes.v1",
+    "service": "LikesService"
+  },
+  "graphql": {
+    "type": "Like",
+    "query": "likes",
+    "mutation": "createLike"
+  },
+  "k8s": {
+    "app": "likes-app",
+    "container": "likes-container"
+  },
+  "project_code": "likes-s49"
+}
