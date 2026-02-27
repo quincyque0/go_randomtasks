@@ -1,0 +1,38 @@
+{
+  "group": "431",
+  "student_id": "s08",
+  "week": "15",
+  "resource": "tickets",
+  "singular": "ticket",
+  "extra_field": {
+    "name": "status",
+    "type": "str"
+  },
+  "service": {
+    "name": "tickets-svc-s08",
+    "port": 8144
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/tickets",
+        "upstream": "tickets-svc-s08"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "tickets.v1",
+    "service": "TicketsService"
+  },
+  "graphql": {
+    "type": "Ticket",
+    "query": "tickets",
+    "mutation": "createTicket"
+  },
+  "k8s": {
+    "app": "tickets-app",
+    "container": "tickets-container"
+  },
+  "project_code": "tickets-s08"
+}

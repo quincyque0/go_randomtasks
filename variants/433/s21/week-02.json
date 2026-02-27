@@ -1,0 +1,38 @@
+{
+  "group": "433",
+  "student_id": "s21",
+  "week": "02",
+  "resource": "orders",
+  "singular": "order",
+  "extra_field": {
+    "name": "priority",
+    "type": "int"
+  },
+  "service": {
+    "name": "orders-svc-s21",
+    "port": 8242
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/orders",
+        "upstream": "orders-svc-s21"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "orders.v1",
+    "service": "OrdersService"
+  },
+  "graphql": {
+    "type": "Order",
+    "query": "orders",
+    "mutation": "createOrder"
+  },
+  "k8s": {
+    "app": "orders-app",
+    "container": "orders-container"
+  },
+  "project_code": "orders-s21"
+}

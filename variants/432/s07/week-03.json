@@ -1,0 +1,38 @@
+{
+  "group": "432",
+  "student_id": "s07",
+  "week": "03",
+  "resource": "photos",
+  "singular": "photo",
+  "extra_field": {
+    "name": "url",
+    "type": "str"
+  },
+  "service": {
+    "name": "photos-svc-s07",
+    "port": 8255
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/photos",
+        "upstream": "photos-svc-s07"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "photos.v1",
+    "service": "PhotosService"
+  },
+  "graphql": {
+    "type": "Photo",
+    "query": "photos",
+    "mutation": "createPhoto"
+  },
+  "k8s": {
+    "app": "photos-app",
+    "container": "photos-container"
+  },
+  "project_code": "photos-s07"
+}

@@ -1,0 +1,38 @@
+{
+  "group": "332",
+  "student_id": "s15",
+  "week": "06",
+  "resource": "events",
+  "singular": "event",
+  "extra_field": {
+    "name": "location",
+    "type": "str"
+  },
+  "service": {
+    "name": "events-svc-s15",
+    "port": 8117
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/events",
+        "upstream": "events-svc-s15"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "events.v1",
+    "service": "EventsService"
+  },
+  "graphql": {
+    "type": "Event",
+    "query": "events",
+    "mutation": "createEvent"
+  },
+  "k8s": {
+    "app": "events-app",
+    "container": "events-container"
+  },
+  "project_code": "events-s15"
+}

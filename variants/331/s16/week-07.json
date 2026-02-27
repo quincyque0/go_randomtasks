@@ -1,0 +1,38 @@
+{
+  "group": "331",
+  "student_id": "s16",
+  "week": "07",
+  "resource": "users",
+  "singular": "user",
+  "extra_field": {
+    "name": "email",
+    "type": "str"
+  },
+  "service": {
+    "name": "users-svc-s16",
+    "port": 8180
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/users",
+        "upstream": "users-svc-s16"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "users.v1",
+    "service": "UsersService"
+  },
+  "graphql": {
+    "type": "User",
+    "query": "users",
+    "mutation": "createUser"
+  },
+  "k8s": {
+    "app": "users-app",
+    "container": "users-container"
+  },
+  "project_code": "users-s16"
+}

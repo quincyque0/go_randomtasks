@@ -9,7 +9,7 @@
 
 Не забудьте настроить переменные, если открыли новый терминал:
 ```bash
-export GROUP=ИКС-431
+export GROUP=431
 export STUDENT_ID=s01
 ```
 

@@ -1,0 +1,38 @@
+{
+  "group": "433",
+  "student_id": "s04",
+  "week": "06",
+  "resource": "tasks",
+  "singular": "task",
+  "extra_field": {
+    "name": "due",
+    "type": "str"
+  },
+  "service": {
+    "name": "tasks-svc-s04",
+    "port": 8256
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/tasks",
+        "upstream": "tasks-svc-s04"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "tasks.v1",
+    "service": "TasksService"
+  },
+  "graphql": {
+    "type": "Task",
+    "query": "tasks",
+    "mutation": "createTask"
+  },
+  "k8s": {
+    "app": "tasks-app",
+    "container": "tasks-container"
+  },
+  "project_code": "tasks-s04"
+}

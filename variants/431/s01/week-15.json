@@ -1,0 +1,38 @@
+{
+  "group": "431",
+  "student_id": "s01",
+  "week": "15",
+  "resource": "logs",
+  "singular": "log",
+  "extra_field": {
+    "name": "level",
+    "type": "str"
+  },
+  "service": {
+    "name": "logs-svc-s01",
+    "port": 8179
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/logs",
+        "upstream": "logs-svc-s01"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "logs.v1",
+    "service": "LogsService"
+  },
+  "graphql": {
+    "type": "Log",
+    "query": "logs",
+    "mutation": "createLog"
+  },
+  "k8s": {
+    "app": "logs-app",
+    "container": "logs-container"
+  },
+  "project_code": "logs-s01"
+}

@@ -1,0 +1,38 @@
+{
+  "group": "332",
+  "student_id": "s08",
+  "week": "15",
+  "resource": "comments",
+  "singular": "comment",
+  "extra_field": {
+    "name": "author",
+    "type": "str"
+  },
+  "service": {
+    "name": "comments-svc-s08",
+    "port": 8178
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/comments",
+        "upstream": "comments-svc-s08"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "comments.v1",
+    "service": "CommentsService"
+  },
+  "graphql": {
+    "type": "Comment",
+    "query": "comments",
+    "mutation": "createComment"
+  },
+  "k8s": {
+    "app": "comments-app",
+    "container": "comments-container"
+  },
+  "project_code": "comments-s08"
+}

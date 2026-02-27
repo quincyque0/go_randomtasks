@@ -1,0 +1,38 @@
+{
+  "group": "332",
+  "student_id": "s20",
+  "week": "14",
+  "resource": "profiles",
+  "singular": "profile",
+  "extra_field": {
+    "name": "phone",
+    "type": "str"
+  },
+  "service": {
+    "name": "profiles-svc-s20",
+    "port": 8225
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/profiles",
+        "upstream": "profiles-svc-s20"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "profiles.v1",
+    "service": "ProfilesService"
+  },
+  "graphql": {
+    "type": "Profile",
+    "query": "profiles",
+    "mutation": "createProfile"
+  },
+  "k8s": {
+    "app": "profiles-app",
+    "container": "profiles-container"
+  },
+  "project_code": "profiles-s20"
+}

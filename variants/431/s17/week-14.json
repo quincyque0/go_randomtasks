@@ -1,0 +1,38 @@
+{
+  "group": "431",
+  "student_id": "s17",
+  "week": "14",
+  "resource": "messages",
+  "singular": "message",
+  "extra_field": {
+    "name": "topic",
+    "type": "str"
+  },
+  "service": {
+    "name": "messages-svc-s17",
+    "port": 8133
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/messages",
+        "upstream": "messages-svc-s17"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "messages.v1",
+    "service": "MessagesService"
+  },
+  "graphql": {
+    "type": "Message",
+    "query": "messages",
+    "mutation": "createMessage"
+  },
+  "k8s": {
+    "app": "messages-app",
+    "container": "messages-container"
+  },
+  "project_code": "messages-s17"
+}

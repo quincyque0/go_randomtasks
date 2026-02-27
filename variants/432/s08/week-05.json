@@ -1,0 +1,38 @@
+{
+  "group": "432",
+  "student_id": "s08",
+  "week": "05",
+  "resource": "devices",
+  "singular": "device",
+  "extra_field": {
+    "name": "serial",
+    "type": "str"
+  },
+  "service": {
+    "name": "devices-svc-s08",
+    "port": 8226
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/devices",
+        "upstream": "devices-svc-s08"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "devices.v1",
+    "service": "DevicesService"
+  },
+  "graphql": {
+    "type": "Device",
+    "query": "devices",
+    "mutation": "createDevice"
+  },
+  "k8s": {
+    "app": "devices-app",
+    "container": "devices-container"
+  },
+  "project_code": "devices-s08"
+}

@@ -1,0 +1,38 @@
+{
+  "group": "332",
+  "student_id": "s04",
+  "week": "08",
+  "resource": "items",
+  "singular": "item",
+  "extra_field": {
+    "name": "sku",
+    "type": "str"
+  },
+  "service": {
+    "name": "items-svc-s04",
+    "port": 8161
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/items",
+        "upstream": "items-svc-s04"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "items.v1",
+    "service": "ItemsService"
+  },
+  "graphql": {
+    "type": "Item",
+    "query": "items",
+    "mutation": "createItem"
+  },
+  "k8s": {
+    "app": "items-app",
+    "container": "items-container"
+  },
+  "project_code": "items-s04"
+}

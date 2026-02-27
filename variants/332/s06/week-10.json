@@ -1,0 +1,38 @@
+{
+  "group": "332",
+  "student_id": "s06",
+  "week": "10",
+  "resource": "shipments",
+  "singular": "shipment",
+  "extra_field": {
+    "name": "tracking",
+    "type": "str"
+  },
+  "service": {
+    "name": "shipments-svc-s06",
+    "port": 8110
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/shipments",
+        "upstream": "shipments-svc-s06"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "shipments.v1",
+    "service": "ShipmentsService"
+  },
+  "graphql": {
+    "type": "Shipment",
+    "query": "shipments",
+    "mutation": "createShipment"
+  },
+  "k8s": {
+    "app": "shipments-app",
+    "container": "shipments-container"
+  },
+  "project_code": "shipments-s06"
+}

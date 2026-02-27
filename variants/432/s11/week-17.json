@@ -1,0 +1,38 @@
+{
+  "group": "432",
+  "student_id": "s11",
+  "week": "17",
+  "resource": "bookings",
+  "singular": "booking",
+  "extra_field": {
+    "name": "date",
+    "type": "str"
+  },
+  "service": {
+    "name": "bookings-svc-s11",
+    "port": 8272
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/bookings",
+        "upstream": "bookings-svc-s11"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "bookings.v1",
+    "service": "BookingsService"
+  },
+  "graphql": {
+    "type": "Booking",
+    "query": "bookings",
+    "mutation": "createBooking"
+  },
+  "k8s": {
+    "app": "bookings-app",
+    "container": "bookings-container"
+  },
+  "project_code": "bookings-s11"
+}

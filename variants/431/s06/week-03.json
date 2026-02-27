@@ -1,0 +1,38 @@
+{
+  "group": "431",
+  "student_id": "s06",
+  "week": "03",
+  "resource": "notifications",
+  "singular": "notification",
+  "extra_field": {
+    "name": "channel",
+    "type": "str"
+  },
+  "service": {
+    "name": "notifications-svc-s06",
+    "port": 8171
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/notifications",
+        "upstream": "notifications-svc-s06"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "notifications.v1",
+    "service": "NotificationsService"
+  },
+  "graphql": {
+    "type": "Notification",
+    "query": "notifications",
+    "mutation": "createNotification"
+  },
+  "k8s": {
+    "app": "notifications-app",
+    "container": "notifications-container"
+  },
+  "project_code": "notifications-s06"
+}

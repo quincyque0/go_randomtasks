@@ -1,0 +1,38 @@
+{
+  "group": "331",
+  "student_id": "s17",
+  "week": "15",
+  "resource": "products",
+  "singular": "product",
+  "extra_field": {
+    "name": "price",
+    "type": "float"
+  },
+  "service": {
+    "name": "products-svc-s17",
+    "port": 8103
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/products",
+        "upstream": "products-svc-s17"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "products.v1",
+    "service": "ProductsService"
+  },
+  "graphql": {
+    "type": "Product",
+    "query": "products",
+    "mutation": "createProduct"
+  },
+  "k8s": {
+    "app": "products-app",
+    "container": "products-container"
+  },
+  "project_code": "products-s17"
+}

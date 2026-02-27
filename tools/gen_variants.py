@@ -83,7 +83,7 @@ def main():
         sid = row['id']
         raw_grp = row.get('group', '431')
         if raw_grp.isdigit():
-            grp = f"ИКС-{raw_grp}"
+            grp = f"{raw_grp}"
         else:
             grp = raw_grp
 

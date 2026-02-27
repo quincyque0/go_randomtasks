@@ -9,7 +9,7 @@ def student_id():
 
 
 def student_group():
-    return os.getenv('GROUP', 'ИКС-431')
+    return os.getenv('GROUP', '431')
 
 
 def repo_root():

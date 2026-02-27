@@ -1,0 +1,38 @@
+{
+  "group": "332",
+  "student_id": "s18",
+  "week": "13",
+  "resource": "invoices",
+  "singular": "invoice",
+  "extra_field": {
+    "name": "amount",
+    "type": "float"
+  },
+  "service": {
+    "name": "invoices-svc-s18",
+    "port": 8148
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/invoices",
+        "upstream": "invoices-svc-s18"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "invoices.v1",
+    "service": "InvoicesService"
+  },
+  "graphql": {
+    "type": "Invoice",
+    "query": "invoices",
+    "mutation": "createInvoice"
+  },
+  "k8s": {
+    "app": "invoices-app",
+    "container": "invoices-container"
+  },
+  "project_code": "invoices-s18"
+}

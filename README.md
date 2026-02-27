@@ -24,7 +24,7 @@
    В файле `students/roster.csv` найдите свою группу и ID.
    Экспортируйте их в переменные окружения, чтобы тесты знали, какой вариант проверять:
    ```bash
-   export GROUP=ИКС-000
+   export GROUP=000
    export STUDENT_ID=s01
    ```
 

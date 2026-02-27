@@ -1,0 +1,38 @@
+{
+  "group": "331",
+  "student_id": "s16",
+  "week": "09",
+  "resource": "reviews",
+  "singular": "review",
+  "extra_field": {
+    "name": "rating",
+    "type": "int"
+  },
+  "service": {
+    "name": "reviews-svc-s16",
+    "port": 8209
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/reviews",
+        "upstream": "reviews-svc-s16"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "reviews.v1",
+    "service": "ReviewsService"
+  },
+  "graphql": {
+    "type": "Review",
+    "query": "reviews",
+    "mutation": "createReview"
+  },
+  "k8s": {
+    "app": "reviews-app",
+    "container": "reviews-container"
+  },
+  "project_code": "reviews-s16"
+}

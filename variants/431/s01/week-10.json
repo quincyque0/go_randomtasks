@@ -1,0 +1,38 @@
+{
+  "group": "431",
+  "student_id": "s01",
+  "week": "10",
+  "resource": "sessions",
+  "singular": "session",
+  "extra_field": {
+    "name": "ip",
+    "type": "str"
+  },
+  "service": {
+    "name": "sessions-svc-s01",
+    "port": 8127
+  },
+  "gateway": {
+    "prefix": "/api",
+    "routes": [
+      {
+        "path": "/api/sessions",
+        "upstream": "sessions-svc-s01"
+      }
+    ]
+  },
+  "grpc": {
+    "package": "sessions.v1",
+    "service": "SessionsService"
+  },
+  "graphql": {
+    "type": "Session",
+    "query": "sessions",
+    "mutation": "createSession"
+  },
+  "k8s": {
+    "app": "sessions-app",
+    "container": "sessions-container"
+  },
+  "project_code": "sessions-s01"
+}
