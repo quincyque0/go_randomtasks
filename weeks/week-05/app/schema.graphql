@@ -1,1 +1,15 @@
-# В этом месте вам необходимо: опишите GraphQL схему
+type Item {
+  id: ID!
+  name: String!
+  description: String
+  sku: String!
+}
+
+type Query {
+  items: [Item!]!
+  item(id: ID!): Item
+}
+
+type Mutation {
+  createItem(name: String!, description: String, sku: String!): Item!
+}
