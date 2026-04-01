@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package items.v1;
+
+service ItemsService {
+    rpc GetItem(GetItemRequest) returns (Item);
+    
+    rpc CreateItem(CreateItemRequest) returns (Item);
+    
+    rpc ListItems(ListItemsRequest) returns (ListItemsResponse);
+    
+    rpc SubscribeItems(SubscribeItemsRequest) returns (stream ItemUpdate);
+}
+
+message GetItemRequest {
+    string id = 1;
+}
+
+message CreateItemRequest {
+    string name = 1;
+    string sku = 2;
+}
+
+message ListItemsRequest {
+    int32 page_size = 1;
+    string page_token = 2;
+}
+
+message ListItemsResponse {
+    repeated Item items = 1;
+    string next_page_token = 2;
+}
+
+message Item {
+    string id = 1;
+    string name = 2;
+    string sku = 3;
+    int64 created_at = 4;
+}
+
+message SubscribeItemsRequest {
+    repeated string item_ids = 1;  
+}
+
+message ItemUpdate {
+    string item_id = 1;
+    string field = 2;     
+    string old_value = 3;
+    string new_value = 4;
+    int64 timestamp = 5;
+}
